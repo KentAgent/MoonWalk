@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:StunningRunning.xcodeproj">
+      location = "self:/Users/Apostolidis/Documents/Xcode Files/StunningRunning/MoonWalk.xcodeproj">
    </FileRef>
 </Workspace>

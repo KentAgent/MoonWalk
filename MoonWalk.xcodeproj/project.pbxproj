@@ -22,7 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		357C6C752085202F0018009A /* StunningRunning.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StunningRunning.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		357C6C752085202F0018009A /* MoonWalk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoonWalk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		357C6C782085202F0018009A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		357C6C7A2085202F0018009A /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		357C6C7C2085202F0018009A /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
@@ -49,10 +49,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		356715C7209D34C7000F11EE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				357C6C782085202F0018009A /* AppDelegate.swift */,
+				357C6C922087E4F30018009A /* ScrollingBackground.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		356715C8209D34CE000F11EE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				357C6C7A2085202F0018009A /* GameScene.sks */,
+				357C6C7C2085202F0018009A /* Actions.sks */,
+				357C6C902087CEC60018009A /* Assets.xcassets */,
+				357C6C822085202F0018009A /* Main.storyboard */,
+				357C6C87208520330018009A /* LaunchScreen.storyboard */,
+				35CB2CAF208F84D7002189DA /* spark.sks */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		356715C9209D34D5000F11EE /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				357C6C7E2085202F0018009A /* GameScene.swift */,
+				357C6C802085202F0018009A /* GameViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		357C6C6C2085202F0018009A = {
 			isa = PBXGroup;
 			children = (
-				357C6C772085202F0018009A /* StunningRunning */,
+				357C6C772085202F0018009A /* MoonWalk */,
 				357C6C762085202F0018009A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -60,37 +91,30 @@
 		357C6C762085202F0018009A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				357C6C752085202F0018009A /* StunningRunning.app */,
+				357C6C752085202F0018009A /* MoonWalk.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		357C6C772085202F0018009A /* StunningRunning */ = {
+		357C6C772085202F0018009A /* MoonWalk */ = {
 			isa = PBXGroup;
 			children = (
-				357C6C782085202F0018009A /* AppDelegate.swift */,
-				357C6C7A2085202F0018009A /* GameScene.sks */,
-				357C6C7C2085202F0018009A /* Actions.sks */,
-				357C6C922087E4F30018009A /* ScrollingBackground.swift */,
-				357C6C7E2085202F0018009A /* GameScene.swift */,
-				357C6C802085202F0018009A /* GameViewController.swift */,
-				357C6C902087CEC60018009A /* Assets.xcassets */,
+				356715C9209D34D5000F11EE /* Controller */,
+				356715C8209D34CE000F11EE /* View */,
+				356715C7209D34C7000F11EE /* Model */,
 				35F1C59C209D24770071BB49 /* myman.mp3 */,
 				35F1C59E209D273A0071BB49 /* notreallyfine.mp3 */,
-				357C6C822085202F0018009A /* Main.storyboard */,
-				357C6C87208520330018009A /* LaunchScreen.storyboard */,
 				357C6C8A208520330018009A /* Info.plist */,
-				35CB2CAF208F84D7002189DA /* spark.sks */,
 			);
-			path = StunningRunning;
+			path = MoonWalk;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		357C6C742085202F0018009A /* StunningRunning */ = {
+		357C6C742085202F0018009A /* MoonWalk */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 357C6C8D208520330018009A /* Build configuration list for PBXNativeTarget "StunningRunning" */;
+			buildConfigurationList = 357C6C8D208520330018009A /* Build configuration list for PBXNativeTarget "MoonWalk" */;
 			buildPhases = (
 				357C6C712085202F0018009A /* Sources */,
 				357C6C722085202F0018009A /* Frameworks */,
@@ -100,9 +124,9 @@
 			);
 			dependencies = (
 			);
-			name = StunningRunning;
+			name = MoonWalk;
 			productName = StunningRunning;
-			productReference = 357C6C752085202F0018009A /* StunningRunning.app */;
+			productReference = 357C6C752085202F0018009A /* MoonWalk.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -120,7 +144,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 357C6C702085202F0018009A /* Build configuration list for PBXProject "StunningRunning" */;
+			buildConfigurationList = 357C6C702085202F0018009A /* Build configuration list for PBXProject "MoonWalk" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -133,7 +157,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				357C6C742085202F0018009A /* StunningRunning */,
+				357C6C742085202F0018009A /* MoonWalk */,
 			);
 		};
 /* End PBXProject section */
@@ -310,12 +334,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S6E23342LP;
-				INFOPLIST_FILE = StunningRunning/Info.plist;
+				INFOPLIST_FILE = MoonWalk/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = GA.MoonWalk;
+				PRODUCT_BUNDLE_IDENTIFIER = ga.moonwalk.se;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -328,12 +352,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S6E23342LP;
-				INFOPLIST_FILE = StunningRunning/Info.plist;
+				INFOPLIST_FILE = MoonWalk/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = GA.MoonWalk;
+				PRODUCT_BUNDLE_IDENTIFIER = ga.moonwalk.se;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -343,7 +367,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		357C6C702085202F0018009A /* Build configuration list for PBXProject "StunningRunning" */ = {
+		357C6C702085202F0018009A /* Build configuration list for PBXProject "MoonWalk" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				357C6C8B208520330018009A /* Debug */,
@@ -352,7 +376,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		357C6C8D208520330018009A /* Build configuration list for PBXNativeTarget "StunningRunning" */ = {
+		357C6C8D208520330018009A /* Build configuration list for PBXNativeTarget "MoonWalk" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				357C6C8E208520330018009A /* Debug */,

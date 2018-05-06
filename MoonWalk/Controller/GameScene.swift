@@ -36,7 +36,15 @@ enum Heights : Int {
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
+    //AdMob app ID:
+    // adMob ID: ca-app-pub-2929582938496453~4062246824
+    
+    //AdMob SDK ID:
+    // ca-app-pub-2929582938496453/3633789841
+    
     var obstacleSprite : SKShapeNode!
+    
+    var grayFilter : SKShapeNode!
     
     var scrollingGround : ScrollingBackground?
     var scrollingMountainsFront : ScrollingBackground?
@@ -90,6 +98,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func setupGameScene() {
         createNodes()
         startSpawningObstacles()
+        loadSavedHighScore()
+    }
+    
+    func loadSavedHighScore() {
+            highScore = UserDefaults.standard.integer(forKey: "highScore")
     }
     
     func createNodes() {
@@ -109,6 +122,23 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 }
                 }, SKAction.wait(forDuration: 0.5)])))
         }
+    }
+    
+    func setupGrayFilter() {
+        grayFilter = SKShapeNode(rect: CGRect(x: 0, y: 0, width: (scene?.size.width)!, height: (scene?.size.height)!))
+        grayFilter.alpha = 1
+        grayFilter.blendMode = .screen
+        grayFilter.fillColor = UIColor.gray
+        grayFilter.zPosition = 25
+        addChild(grayFilter)
+    }
+    
+    func loadGrayFilter() {
+        setupGrayFilter()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 6) {
+            self.grayFilter.removeFromParent()
+        }
+        
     }
     
     func setupScrollingNodes() {
@@ -179,7 +209,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if highScore < score {
             highScore = score
             highScoreLabel.text = "\(highScore)"
+            saveHighScore()
         }
+    }
+    
+    func saveHighScore() {
+        UserDefaults.standard.set(highScore, forKey: "highScore")
     }
     
     func updateScore() {
@@ -251,6 +286,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             score = 0
             setupGameScene()
             playGameOverSound()
+            loadGrayFilter()
         }
     }
     
@@ -260,15 +296,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         switch type {
         case .small:
-            obstacleSprite.path = CGPath(roundedRect: CGRect(x: -10, y: 0, width: 100, height: 70), cornerWidth: 8, cornerHeight: 8, transform: nil)
-            obstacleSprite.fillColor = UIColor(red: 0.4431, green: 0.5567, blue: 0.7345, alpha: 1)
+            obstacleSprite.path = CGPath(roundedRect: CGRect(x: -10, y: 0, width: 100, height: 70), cornerWidth: 18, cornerHeight: 18, transform: nil)
+            //obstacleSprite.fillColor = UIColor(red: 0.4431, green: 0.5567, blue: 0.7345, alpha: 1)
         case .medium:
-            obstacleSprite.path = CGPath(roundedRect: CGRect(x: -10, y: 0, width: 200, height: 100), cornerWidth: 8, cornerHeight: 8, transform: nil)
-            obstacleSprite.fillColor = UIColor(red: 0.1003, green: 0.4567, blue: 0.8335, alpha: 1)
+            obstacleSprite.path = CGPath(roundedRect: CGRect(x: -10, y: 0, width: 200, height: 100), cornerWidth: 18, cornerHeight: 18, transform: nil)
+            //obstacleSprite.fillColor = UIColor(red: 0.1003, green: 0.4567, blue: 0.8335, alpha: 1)
         case .big:
-            obstacleSprite.path = CGPath(roundedRect: CGRect(x: -10, y: 0, width: 500, height: 130), cornerWidth: 8, cornerHeight: 8, transform: nil)
-            obstacleSprite.fillColor = UIColor(red: 0.1431, green: 0.1567, blue: 0.2325, alpha: 1)
+            obstacleSprite.path = CGPath(roundedRect: CGRect(x: -10, y: 0, width: 500, height: 130), cornerWidth: 18, cornerHeight: 18, transform: nil)
+            //obstacleSprite.fillColor = UIColor(red: 0.1431, green: 0.1567, blue: 0.2325, alpha: 1)
         }
+        
+        obstacleSprite.strokeColor = UIColor.black
+        obstacleSprite.fillColor = UIColor.clear
         
         let randomHeights : CGFloat
         
